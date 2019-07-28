@@ -10,37 +10,37 @@ public interface DecodeFeed {
     /**
      * Everything was a success
      */
-    public static final int SUCCESS = 0;
+    int SUCCESS = 0;
 
     /**
      * The bitstream is not ogg
      */
-    public static final int INVALID_OGG_BITSTREAM = -21;
+    int INVALID_OGG_BITSTREAM = -21;
 
     /**
      * Failed to read first page
      */
-    public static final int ERROR_READING_FIRST_PAGE = -22;
+    int ERROR_READING_FIRST_PAGE = -22;
 
     /**
      * Failed reading the initial header packet
      */
-    public static final int ERROR_READING_INITIAL_HEADER_PACKET = -23;
+    int ERROR_READING_INITIAL_HEADER_PACKET = -23;
 
     /**
      * The data is not a vorbis header
      */
-    public static final int NOT_VORBIS_HEADER = -24;
+    int NOT_VORBIS_HEADER = -24;
 
     /**
      * The secondary header is corrupt
      */
-    public static final int CORRUPT_SECONDARY_HEADER = -25;
+    int CORRUPT_SECONDARY_HEADER = -25;
 
     /**
      * Reached a premature end of file
      */
-    public static final int PREMATURE_END_OF_FILE = -26;
+    int PREMATURE_END_OF_FILE = -26;
 
     /**
      * Triggered from the native {@link VorbisDecoder} that is requesting to read the next bit of vorbis data
@@ -49,7 +49,7 @@ public interface DecodeFeed {
      * @param amountToWrite the amount of vorbis data to write
      * @return the amount actually written
      */
-    public int readVorbisData(byte[] buffer, int amountToWrite);
+    int readVorbisData(byte[] buffer, int amountToWrite);
 
     /**
      * Triggered from the native {@link VorbisDecoder} that is requesting to write the next bit of raw PCM data
@@ -57,22 +57,22 @@ public interface DecodeFeed {
      * @param pcmData      the raw pcm data
      * @param amountToRead the amount available to read in the buffer
      */
-    public void writePCMData(short[] pcmData, int amountToRead);
+    void writePCMData(short[] pcmData, int amountToRead);
 
     /**
      * To be called when decoding has completed
      */
-    public void stop();
+    void stop();
 
     /**
      * Puts the decode feed in the reading header state
      */
-    public void startReadingHeader();
+    void startReadingHeader();
 
     /**
      * To be called when decoding has started
      *
      * @param decodeStreamInfo the stream information of what's about to be played
      */
-    public void start(DecodeStreamInfo decodeStreamInfo);
+    void start(DecodeStreamInfo decodeStreamInfo);
 }

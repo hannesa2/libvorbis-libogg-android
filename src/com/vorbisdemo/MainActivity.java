@@ -99,18 +99,18 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        sampleRateSpinner = (Spinner) findViewById(R.id.sample_rate_spinner);
-        chanelConfigSpinner = (Spinner) findViewById(R.id.channel_config_spinner);
+        sampleRateSpinner = findViewById(R.id.sample_rate_spinner);
+        chanelConfigSpinner = findViewById(R.id.channel_config_spinner);
 
-        encodingTypeRadioGroup = (RadioGroup) findViewById(R.id.encoding_type_radio_group);
+        encodingTypeRadioGroup = findViewById(R.id.encoding_type_radio_group);
 
-        availableQualitiesLayout = (LinearLayout) findViewById(R.id.available_qualities_layout);
-        qualitySpinner = (Spinner) findViewById(R.id.quality_spinner);
+        availableQualitiesLayout = findViewById(R.id.available_qualities_layout);
+        qualitySpinner = findViewById(R.id.quality_spinner);
 
-        availableBitratesLayout = (LinearLayout) findViewById(R.id.available_bitrates_layout);
-        bitrateSpinner = (Spinner) findViewById(R.id.bitrate_spinner);
+        availableBitratesLayout = findViewById(R.id.available_bitrates_layout);
+        bitrateSpinner = findViewById(R.id.bitrate_spinner);
 
-        logArea = (TextView) findViewById(R.id.log_area);
+        logArea = findViewById(R.id.log_area);
 
         //Set log area to scroll automatically
         logArea.setMovementMethod(new ScrollingMovementMethod());
@@ -223,17 +223,17 @@ public class MainActivity extends Activity {
                 vorbisRecorder = new VorbisRecorder(fileToSaveTo, recordingHandler);
             }
 
-            Long sampleRate = Long.parseLong(sampleRateSpinner.getSelectedItem().toString());
-            Long channels = (long) (chanelConfigSpinner.getSelectedItemPosition() + 1);
+            long sampleRate = Long.parseLong(sampleRateSpinner.getSelectedItem().toString());
+            long channels = (long) (chanelConfigSpinner.getSelectedItemPosition() + 1);
 
             //Start recording with selected encoding options
             int i = encodingTypeRadioGroup.getCheckedRadioButtonId();
             if (i == R.id.with_bitrate) {
-                Long bitrate = Long.parseLong(bitrateSpinner.getSelectedItem().toString());
+                long bitrate = Long.parseLong(bitrateSpinner.getSelectedItem().toString());
                 vorbisRecorder.start(sampleRate, channels, bitrate);
 
             } else if (i == R.id.with_quality) {
-                Float quality = Float.parseFloat(qualitySpinner.getSelectedItem().toString());
+                float quality = Float.parseFloat(qualitySpinner.getSelectedItem().toString());
                 vorbisRecorder.start(sampleRate, channels, quality);
 
             }

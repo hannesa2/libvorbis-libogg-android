@@ -61,7 +61,7 @@ public class VorbisRecorder {
     /**
      * Whether the recording will encode with a quality percent or average bitrate
      */
-    private static enum RecordingType {
+    private enum RecordingType {
         WITH_QUALITY, WITH_BITRATE
     }
 
@@ -98,7 +98,7 @@ public class VorbisRecorder {
     /**
      * The state of the recorder
      */
-    private static enum RecorderState {
+    private enum RecorderState {
         RECORDING, STOPPED, STOPPING
     }
 

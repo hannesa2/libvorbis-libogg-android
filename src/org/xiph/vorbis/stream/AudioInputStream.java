@@ -16,7 +16,7 @@ public abstract class AudioInputStream extends InputStream implements Closeable 
 
 	@Override
 	public int read() throws IOException {
-		short buf[] = new short[1];
+        short[] buf = new short[1];
 		if ( this.read(buf, 0, 1) == -1) return -1;
 		else return buf[0];	
 	}
