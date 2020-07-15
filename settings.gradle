@@ -1,0 +1,4 @@
+rootProject.name = 'LibVorbisLibogg'
+
+include ':app'
+include ':vorbis-ogg'

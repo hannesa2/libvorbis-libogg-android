@@ -2,7 +2,7 @@
 libvorbis - Vorbis Encoder/Decoder example for Android/JNI.
 
 ## Purpose
-* The purpose of this project is to demonstrate how Android can use a JNI wrapper around the libvorbis library to both encode PCM data, and decode a ogg/vorbis bitstream
+* The purpose of this project is to demonstrate how Android can use a JNI wrapper around the libvorbis library to both encode PCM data, and decode a ogg/org.xiph.vorbis bitstream
 
 ## Usage
 * Press the "Start Recording" button to start recording, then press the "Stop Recording" button to stop recording.
@@ -72,7 +72,7 @@ vorbisPlayer.start();
 DecodeFeed decodeFeed = new DecodeFeed() {
              @Override
              public int readVorbisData(byte[] buffer, int amountToWrite) {
-                 //Read from vorbis data source
+                 //Read from org.xiph.vorbis data source
              }
 
              @Override
@@ -100,7 +100,7 @@ VorbisPlayer vorbisPlayer = new VorbisPlayer(decodeFeed);
 </pre>
 
 ## License
-* For simplicity sake, this code is licensed under the same license as the libvorbis library from (http://xiph.org/vorbis/)
+* For simplicity sake, this code is licensed under the same license as the libvorbis library from (http://xiph.org/org.xiph.vorbis/)
 
 ## Others
 * Tested and working under the Nexus 4, feedback for other devices are welcome

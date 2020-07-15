@@ -8,39 +8,6 @@ buildscript {
     }
 }
 
-apply plugin: 'com.android.library'
-
-android {
-    compileSdkVersion project.hasProperty("defaultCompileSdkVersion") ? defaultCompileSdkVersion : 29
-
-    defaultConfig {
-        minSdkVersion 9
-        targetSdkVersion project.hasProperty("defaultTargetSdkVersion") ? defaultTargetSdkVersion : 29
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard_libvorbis-libogg.cfg'
-        }
-    }
-
-    lintOptions { abortOnError false }
-
-    sourceSets {
-        main {
-            manifest.srcFile 'AndroidManifest.xml'
-            java.srcDirs = ['src', 'src-gen']
-            resources.srcDirs = ['src']
-            aidl.srcDirs = ['src']
-            renderscript.srcDirs = ['src']
-            res.srcDirs = ['res']
-            assets.srcDirs = ['assets']
-        }
-    }
-}
-
-
 allprojects {
     repositories {
         google()
@@ -49,3 +16,6 @@ allprojects {
 
 }
 
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
